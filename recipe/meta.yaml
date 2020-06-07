@@ -1,4 +1,4 @@
-{% set version = '1.4.0.1' %}
+{% set version = "1.5.0-1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/tmle_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/tmle/tmle_{{ version }}.tar.gz
-  sha256: 075e7b7fe0496e02785eb35aed0db84476db756c6f14a0047808af2565b33501
+  sha256: 9fc1f7432a40d8911393701ca33e2ad64356c3bd12128f01dd216399b16e3d93
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -40,25 +40,15 @@ test:
 about:
   home: https://CRAN.R-project.org/package=tmle
   license: BSD_3_clause | GPL-2
-  summary: Targeted maximum likelihood estimation of point treatment effects (Targeted Maximum
-    Likelihood Learning, The International Journal of Biostatistics, 2(1), 2006.  This
-    version automatically estimates the additive treatment effect among the treated
-    (ATT) and among the controls (ATC).  The tmle() function calculates the adjusted
-    marginal difference in mean outcome associated with a binary point treatment, for
-    continuous or binary outcomes.  Relative risk and odds ratio estimates are also
-    reported for binary outcomes. Missingness in the outcome is allowed, but not in
-    treatment assignment or baseline covariate values.  The population mean is calculated
-    when there is missingness, and no variation in the treatment assignment. The tmleMSM()
-    function estimates the parameters of a marginal structural model for a binary point
-    treatment effect. Effect estimation stratified by a binary mediating variable is
-    also available. An ID argument can be used to identify repeated measures. Default
-    settings call 'SuperLearner' to estimate the Q and g portions of the likelihood,
-    unless values or a user-supplied regression function are passed in as arguments.
+  summary: Targeted maximum likelihood estimation of point treatment effects (Targeted Maximum Likelihood Learning, The International Journal of Biostatistics, 2(1), 2006.  This version automatically estimates the additive treatment effect among the treated (ATT) and among the controls (ATC).  The tmle() function calculates
+    the adjusted marginal difference in mean outcome associated with a binary point treatment, for continuous or binary outcomes.  Relative risk and odds ratio estimates are also reported for binary outcomes. Missingness in the outcome is allowed, but not in treatment assignment or baseline covariate values.  The population
+    mean is calculated when there is missingness, and no variation in the treatment assignment. The tmleMSM() function estimates the parameters of a marginal structural model for a binary point treatment effect. Effect estimation stratified by a binary mediating variable is also available. An ID argument can be used to identify
+    repeated measures. Default settings call 'SuperLearner' to estimate the Q and g portions of the likelihood, unless values or a user-supplied regression function are passed in as arguments.
   license_family: GPL2
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/BSD_3_clause'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/BSD_3_clause
     - LICENSE
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
