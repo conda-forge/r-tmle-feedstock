@@ -1,4 +1,4 @@
-{% set version = "1.5.0.2" %}
+{% set version = "2.0.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/tmle_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/tmle/tmle_{{ version }}.tar.gz
-  sha256: 4772c352e8d3d9b5a0b7480c0e0962de4f5060fb7bf3fcb8ee4fa1cb10f93fd4
+  sha256: 8693cab745d426260227d522d9113078d720b1ac0eb0931a47fa8f74aab82fa7
 
 build:
   merge_build_host: true  # [win]
-  number: 2
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
